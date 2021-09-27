@@ -4,21 +4,32 @@
       <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
         {{ appName }}
       </router-link>
-
+		<div class="row mr-2">
+			<notifications-dropdown :muted="true" class="d-lg-none d-inline"/>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false">
+		  
         <span class="navbar-toggler-icon" />
       </button>
+		</div>
 
       <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <locale-dropdown />
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
+			
+          <template v-if="!user">
+            <locale-dropdown />
+          </template>
+          <template v-if="user">
+            <li class="nav-item">
+              <router-link :to="{ name: 'settings.profile' }" class="nav-link">                
+                  {{ $t('settings') }}
+              </router-link>
+            </li>
+          </template>
         </ul>
 
         <ul class="navbar-nav ml-auto">
           <!-- Authenticated -->
+		  <notifications-dropdown class="d-none d-lg-block"/>
           <li v-if="user" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark"
                href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -61,10 +72,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import LocaleDropdown from './LocaleDropdown'
+import NotificationsDropdown from './NotificationsDropdown.vue'
 
 export default {
   components: {
-    LocaleDropdown
+    LocaleDropdown,
+    NotificationsDropdown
   },
 
   data: () => ({

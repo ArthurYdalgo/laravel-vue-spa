@@ -80,14 +80,19 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-BR',
 
     'locales' => [
         'en' => 'EN',
-        'es' => 'ES',
-        'fr' => 'FR',
+        // 'es' => 'ES',
+        // 'fr' => 'FR',
         'pt-BR' => 'BR',
-        'zh-CN' => '中文',
+        // 'zh-CN' => '中文',
+    ],
+
+    'flags' => [
+        'en' => 'US',
+        'pt-BR' => 'BR'
     ],
 
     /*
@@ -101,7 +106,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -173,13 +178,14 @@ return [
         /*
          * Package Service Providers...
          */
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 

@@ -37,6 +37,11 @@ export default {
           icon: 'lock',
           name: this.$t('password'),
           route: 'settings.password'
+        },
+        {
+          icon: 'language',
+          name: this.$t('language'),
+          route: 'settings.language'
         }
       ]
     }

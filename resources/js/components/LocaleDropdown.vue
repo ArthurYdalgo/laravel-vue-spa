@@ -1,18 +1,18 @@
 <template>
-  <li v-if="Object.keys(locales).length > 1" class="nav-item dropdown">
+  <div v-if="Object.keys(locales).length > 1" class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button"
        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
     >
-      {{ locales[locale] }}
+      {{ locales[locale] }} - <img :src="`https://www.countryflags.io/${flags[locale]}/flat/32.png`" >
     </a>
     <div class="dropdown-menu">
-      <a v-for="(value, key) in locales" :key="key" class="dropdown-item" href="#"
+      <a v-for="(value, key) in flags" :key="key" class="dropdown-item" href="#"
          @click.prevent="setLocale(key)"
       >
-        {{ value }}
+        <img :src="`https://www.countryflags.io/${value}/flat/32.png`" >
       </a>
     </div>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -22,7 +22,8 @@ import { loadMessages } from '~/plugins/i18n'
 export default {
   computed: mapGetters({
     locale: 'lang/locale',
-    locales: 'lang/locales'
+    locales: 'lang/locales',
+    flags: 'lang/flags'
   }),
 
   methods: {

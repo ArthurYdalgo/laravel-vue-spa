@@ -1,18 +1,20 @@
 import Cookies from 'js-cookie'
 import * as types from '../mutation-types'
 
-const { locale, locales } = window.config
+const { locale, locales, flags } = window.config
 
 // state
 export const state = {
   locale: getLocale(locales, locale),
-  locales: locales
+  locales: locales,
+  flags: flags,
 }
 
 // getters
 export const getters = {
   locale: state => state.locale,
-  locales: state => state.locales
+  locales: state => state.locales,
+  flags: state => state.flags
 }
 
 // mutations

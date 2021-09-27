@@ -7,13 +7,17 @@ use App\Notifications\VerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
 {
     use Notifiable,
-        HasFactory;
+        HasFactory,
+        HasRoles;
+
+    protected $guard_name = 'api';
 
     /**
      * The attributes that are mass assignable.
@@ -112,5 +116,14 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Retrieves user's notifications
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function userNotifications(){
+        return $this->hasMany(UserNotification::class);
     }
 }

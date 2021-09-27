@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "7e6a496b-bde3-4235-8cde-a94be17b3119",
+		"name": "PlantTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"jwt_token\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\""
+							},
+							{
+								"key": "DNT",
+								"value": "1"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en"
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost/login"
+							},
+							{
+								"key": "Cookie",
+								"value": "_ga=GA1.1.1747288389.1628050487; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Inp0WExyeHU3UTBlZGR5aUFtTDExSlE9PSIsInZhbHVlIjoiOEtMTHV2cGkwckp1SFZsd0JTUURXQjNaRE1jRVRuTVk1TXRPUEtSYjdxODlkcWZRTzg4L0p5VUw4R095REVHZXczeWxzVWdOMlFhdWVML3RqZFIzSFNEL2FVcmowVU9tZ2o5K3R2aU01eWNPMU5aV3NQNnBBTi9nallqTklYVmVTb1JKNkpJblBXaUJqUE1wbFNIb2VMa0k1cFd2UDdnaGVYTkJKeUdIYTlzPSIsIm1hYyI6ImI1ZDQ4NWMzZWM5MjExMGU3Y2UzMDljMjg4ZTE0NmM3OTZiMzE0ZTM0OWUyMDRlZGY4MTQ1N2JmN2RiOWI4NTAifQ%3D%3D; locale=en"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"master@email.com\",\"password\":\"senha123\"}"
+						},
+						"url": {
+							"raw": "http://localhost/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Google Chrome\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\""
+							},
+							{
+								"key": "DNT",
+								"value": "1"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en"
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json;charset=UTF-8"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost/register"
+							},
+							{
+								"key": "Cookie",
+								"value": "_ga=GA1.1.1747288389.1628050487; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Inp0WExyeHU3UTBlZGR5aUFtTDExSlE9PSIsInZhbHVlIjoiOEtMTHV2cGkwckp1SFZsd0JTUURXQjNaRE1jRVRuTVk1TXRPUEtSYjdxODlkcWZRTzg4L0p5VUw4R095REVHZXczeWxzVWdOMlFhdWVML3RqZFIzSFNEL2FVcmowVU9tZ2o5K3R2aU01eWNPMU5aV3NQNnBBTi9nallqTklYVmVTb1JKNkpJblBXaUJqUE1wbFNIb2VMa0k1cFd2UDdnaGVYTkJKeUdIYTlzPSIsIm1hYyI6ImI1ZDQ4NWMzZWM5MjExMGU3Y2UzMDljMjg4ZTE0NmM3OTZiMzE0ZTM0OWUyMDRlZGY4MTQ1N2JmN2RiOWI4NTAifQ%3D%3D; locale=en"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Teste\",\"email\":\"teste@email.com\",\"password\":\"senha123\",\"password_confirmation\":\"senha123\"}"
+						},
+						"url": {
+							"raw": "http://localhost/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserNotifications",
+			"item": [
+				{
+					"name": "Pending Notifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/user-notifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"user-notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark All Notifications As Read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/user-notifications/mark-all-as-read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"user-notifications",
+								"mark-all-as-read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Notifications As Read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/user-notifications/mark-as-read/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"user-notifications",
+								"mark-as-read",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Notify User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Oi",
+									"type": "text"
+								},
+								{
+									"key": "notification",
+									"value": "Bem vindo",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "cog",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/user-notifications/notify-user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"user-notifications",
+								"notify-user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": ""
+		}
+	]
+}

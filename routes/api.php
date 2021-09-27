@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\API\UserNotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'auth:api'], function () {
+
+    Route::apiResource('user-notifications', UserNotificationController::class, ['only' => ['index']]);
+
+    Route::group([
+        'middleware' => 'auth:api',
+        'prefix' => 'user-notifications'
+    ], function(){
+        Route::post('notify-user/{user}', [UserNotificationController::class, 'notifyUser'])->middleware('moderator');
+        Route::post('mark-as-read/{user_notification}', [UserNotificationController::class, 'markAsRead']);
+        Route::post('mark-all-as-read', [UserNotificationController::class, 'markAllAsRead']);
+    });
+
     Route::post('logout', [LoginController::class, 'logout']);
 
     Route::get('user', [UserController::class, 'current']);
